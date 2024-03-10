@@ -29,6 +29,14 @@ function main() {
     });
 
     document.addEventListener('keydown', onKeydown, true);
+
+    // Add event listeners for game control buttons
+    // Use same event listener handle as keydown events
+    document.getElementById('left-button').addEventListener('click', () => { onKeydown({ key: 'ArrowLeft' })});
+    document.getElementById('right-button').addEventListener('click', () => { onKeydown({ key: 'ArrowRight' })});   
+    document.getElementById('up-button').addEventListener('click', () => { onKeydown({ key: 'ArrowUp' })});
+    document.getElementById('down-button').addEventListener('click', () => { onKeydown({ key: 'ArrowDown' })});
+
 }
 
 function onKeydown(event) {

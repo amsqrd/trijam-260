@@ -112,6 +112,7 @@ td {
 }
 
 .game-state > div {
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -119,6 +120,7 @@ td {
     height: 100%;
 }
 
+.game-controls,
 .game-state--hidden {
     display: none;
 }
@@ -127,4 +129,24 @@ td {
     height: 100%;
     background: #6017EB;
     position: relative;
+}
+
+.game-controls > div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    background: var(--cream);
+}
+
+.game-control-button {
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+/* Display on screen buttons for touch devices where keyboard is not available */
+@media (hover: none) {
+    .game-controls {
+        display: block;
+    }
 }

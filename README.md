@@ -39,7 +39,7 @@ python3 -m http.server 8000
 
 ## Useful Resource
 
-* TBD
+* [Media query to detect if a touchscreen is present](https://stackoverflow.com/questions/11387805/media-query-to-detect-if-device-is-touchscreen)
 
 ## Maintainers
 
