@@ -68,6 +68,7 @@ button {
     color: var(--dark-brown);
     text-transform: uppercase;
     font-weight: bold;
+    user-select: none;
 }
 
 button:hover {
@@ -115,6 +116,7 @@ td {
     touch-action: manipulation;
 }
 
+.game-controls-message-p,
 .game-controls,
 .game-state--hidden {
     display: none;
@@ -140,6 +142,7 @@ td {
     border-radius: 5px;
 }
 
+.game-controls-message-p,
 .mute-message-p {
     font-size: 1rem;
     margin: 0;
@@ -149,6 +152,7 @@ td {
     font-size: 2rem;
 }
 
+.game-controls-message-p,
 .opening-message-p,
 .mute-message-p {
     text-align: center;
@@ -157,7 +161,12 @@ td {
 
 /* Display on screen buttons for touch devices where keyboard is not available */
 @media (hover: none) {
+    .game-controls-message-p,
     .game-controls {
         display: block;
+    }
+
+    .mute-message-p {
+        display: none;
     }
 }
