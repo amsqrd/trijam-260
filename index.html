@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>What Skitters Beneath | Trijam #260</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+        <link href="styles/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <a href="https://github.com/amsqrd/trijam-260">What Skitters Beneath | Trijam #260</a>
+        </header>
+        <main>
+            <!-- Start Game State -->
+            <section id="start-state" class="game-state">
+                <div>
+                    <h1>What Skitters Beneath</h1>
+                    <p><strong>Watch out!</strong> You are a bug trying to avoid getting squashed by the humans walking about above. How long can you survive their onslaught? Use the <strong>arrows keys</strong> or <strong>WASD</strong> to move around.</p>
+                    <button id="start-game-button">Start Game</button>
+                </div>
+            </section>
+            <!-- Play Game State -->
+            <section id="play-state" class="game-state game-state--hidden">
+                <div>
+                    <table id="game-table"></table>
+                </div>
+            </section>
+            <!-- End Game State -->
+            <section id="end-state" class="game-state game-state--hidden">
+                <div>
+                    <button id="restart-game-button">Restart Game</button>
+                </div>
+            </section>
+        </main>
+        <footer>
+            A game by Ashley, Makayla, and Mia
+        </footer>
+    </body>
+    <script type="module" src="scripts/main.js"></script>
+</html>

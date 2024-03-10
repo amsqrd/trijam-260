@@ -1,0 +1,101 @@
+:root {
+    --dark-green: #5F6F52;
+    --dark-brown: #361b08;
+    --light-green: #A9B388;
+    --cream: #FEFAE0;
+    --tan: #B99470;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--tan);
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header,
+footer {
+    padding: 1.25rem 1rem;
+}
+
+header {
+    background-color: var(--light-green);
+    box-shadow: 1px 0 5px var(--dark-brown);
+}
+
+header a {
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 2px 2px var(--tan);
+    color: var(--cream);
+    font-size: 1.25rem;
+}
+
+footer {
+    background-color: var(--dark-green);
+    text-align: center;
+    font-weight: bold;
+    color: var(--cream);
+    text-shadow: 1px 1px var(--tan);
+}
+
+h1 {  
+    font-family: "Creepster", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    color: var(--dark-brown);
+    font-size: 4rem;
+    margin: 0;
+}
+
+button {
+    padding: 0.5rem 1.5rem;
+    font-size: 2rem;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    background: var(--cream);
+    color: var(--dark-brown);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #d3cfb9;
+}
+
+main {
+    height: 100%;
+}
+
+p {
+    padding: 0 10%;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.game-state {
+    height: 100%;
+}
+
+.game-state > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.game-state--hidden {
+    display: none;
+}
