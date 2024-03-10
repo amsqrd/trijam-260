@@ -84,9 +84,6 @@ function startGame() {
 
     generateGameTable(MAX_ROW_SIZE, MAX_COLUMN_SIZE);
 
-    // Spawn bug
-    spawnBug();
-
     // Initialize player starting position
     updatePlayerPosition(_gameState.playerRow, _gameState.playerColumnumn);
 
@@ -119,10 +116,6 @@ function generateGameTable(rowSize, columnSize) {
 
         gameTable.appendChild(tr);
     } 
-}
-
-function spawnBug() {
-
 }
 
 function spawnHuman() {
