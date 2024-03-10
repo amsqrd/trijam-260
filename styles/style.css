@@ -118,6 +118,7 @@ td {
     align-items: center;
     justify-content: space-evenly;
     height: 100%;
+    touch-action: manipulation;
 }
 
 .game-controls,

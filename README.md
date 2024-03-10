@@ -40,6 +40,7 @@ python3 -m http.server 8000
 ## Useful Resource
 
 * [Media query to detect if a touchscreen is present](https://stackoverflow.com/questions/11387805/media-query-to-detect-if-device-is-touchscreen)
+* [Disable double tab zoom on mobile devices](https://stackoverflow.com/questions/10614481/disable-double-tap-zoom-option-in-browser-on-touch-devices)
 
 ## Maintainers
 
