@@ -41,6 +41,7 @@ python3 -m http.server 8000
 
 * [Media query to detect if a touchscreen is present](https://stackoverflow.com/questions/11387805/media-query-to-detect-if-device-is-touchscreen)
 * [Disable double tab zoom on mobile devices](https://stackoverflow.com/questions/10614481/disable-double-tap-zoom-option-in-browser-on-touch-devices)
+* [Mute all sound with JavaScript on HTML page](https://stackoverflow.com/questions/14044761/how-to-mute-all-sound-in-a-page-with-js)
 
 ## Maintainers
 

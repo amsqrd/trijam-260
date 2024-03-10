@@ -1,5 +1,6 @@
 const MAX_ROW_SIZE = 9;
 const MAX_COLUMN_SIZE = 9;
+let _backgroundAudioLoop;
 let _gameState = { };
 
 main();
@@ -14,7 +15,7 @@ function main() {
         playState.classList.remove('game-state--hidden');
 
         // Start background audio
-        playSound('assets/sounds/background-loop.wav', 0.15, true);
+        _backgroundAudioLoop = playSound('assets/sounds/background-loop.wav', 0.15, true);
 
         startGame();
     });
@@ -77,6 +78,10 @@ function onKeydown(event) {
                 playSound('assets/sounds/bump.wav');
             }
             break;
+        case "M":
+        case "m":
+            _gameState.isMuted = !_gameState.isMuted;
+            _backgroundAudioLoop.muted = _gameState.isMuted;
         default:
             return;
     };
@@ -91,7 +96,8 @@ function startGame() {
         playerColumn: Math.floor(MAX_COLUMN_SIZE / 2),
         humanCount: 0,
         matrix: createGameMatrix(MAX_ROW_SIZE, MAX_COLUMN_SIZE),
-        isGameOver: false
+        isGameOver: false,
+        isMuted: false
     }
 
     generateGameTable(MAX_ROW_SIZE, MAX_COLUMN_SIZE);
@@ -187,6 +193,8 @@ function playSound(url, volume = 1, loop = false) {
     audio.volume = volume;
     audio.loop = loop;
     audio.play();
+
+    return audio;
 }
 
 /**
