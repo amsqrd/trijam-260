@@ -31,6 +31,9 @@ python3 -m http.server 8000
 
 * [Mega Game Music Collection](https://www.gamedevmarket.net/asset/mega-game-music-collection/)
     * Hit_Hurt3.wav
+    * The Superiority_looped.wav
+* Mega SFX Pack
+    * Powerup22.wav
 * [Creeper Google Font](https://fonts.google.com/specimen/Creepster)
 * [Outfit Google Font](https://fonts.google.com/specimen/Outfit)
 

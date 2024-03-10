@@ -13,6 +13,9 @@ function main() {
         const playState = document.getElementById('play-state');
         playState.classList.remove('game-state--hidden');
 
+        // Start background audio
+        playSound('assets/sounds/background-loop.wav', 0.15, true);
+
         startGame();
     });
 
@@ -79,7 +82,8 @@ function startGame() {
         playerRow: Math.floor(MAX_ROW_SIZE / 2),
         playerColumn: Math.floor(MAX_COLUMN_SIZE / 2),
         humanCount: 0,
-        matrix: createGameMatrix(MAX_ROW_SIZE, MAX_COLUMN_SIZE)
+        matrix: createGameMatrix(MAX_ROW_SIZE, MAX_COLUMN_SIZE),
+        isGameOver: false
     }
 
     generateGameTable(MAX_ROW_SIZE, MAX_COLUMN_SIZE);
@@ -154,7 +158,8 @@ function updatePlayerPosition(row, col) {
     // if a human inside cell, splat the bug and end the game
     if(_gameState.matrix[_gameState.playerRow][_gameState.playerColumn]) {
         // Trigger end game state
-        //playSound('assets/sounds/eat.wav');
+        playSound('assets/sounds/splat.wav');
+        _gameState.isGameOver = true;
     } 
         
     playerTd.classList.add('player');
