@@ -131,7 +131,22 @@ function generateGameTable(rowSize, columnSize) {
 }
 
 function spawnHuman() {
+    displayElapsedTime();
+}
 
+function displayElapsedTime() {
+    const timer = document.getElementById('elapsed-time');
+    let minutes = 0;
+    let seconds = 0;
+
+    setInterval(() => {
+        seconds += 1;
+        if (seconds == 60) {
+            minutes += 1;
+            seconds = 0;
+        }
+        seconds < 10 ? timer.innerHTML = `${minutes}:0${seconds}` : timer.innerHTML = `${minutes}:${seconds}`;
+    }, 1000)
 }
 
 /**
