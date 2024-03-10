@@ -77,7 +77,7 @@ function onKeydown(event) {
 function startGame() {
     _gameState = {
         playerRow: Math.floor(MAX_ROW_SIZE / 2),
-        playerColumnumn: Math.floor(MAX_COLUMN_SIZE / 2),
+        playerColumn: Math.floor(MAX_COLUMN_SIZE / 2),
         humanCount: 0,
         matrix: createGameMatrix(MAX_ROW_SIZE, MAX_COLUMN_SIZE)
     }
@@ -85,7 +85,7 @@ function startGame() {
     generateGameTable(MAX_ROW_SIZE, MAX_COLUMN_SIZE);
 
     // Initialize player starting position
-    updatePlayerPosition(_gameState.playerRow, _gameState.playerColumnumn);
+    updatePlayerPosition(_gameState.playerRow, _gameState.playerColumn);
 
     // Spawn human
     spawnHuman();

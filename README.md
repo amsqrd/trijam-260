@@ -5,7 +5,7 @@ Source code for amsqrd's Trijam 260 entry. The theme is "Underneath Us"
 
 ## Synopsis
 
-**What Skitters Beneath** is a simple web game where players are in control of a bug dodging the footsteps of humans above. Players move the bug in a grid with arrows keys or WASD.  As the game time elapses, the game increases in difficulty with the addition of more humans walking around.  
+*What Skitters Beneath* is a simple web game where players are in control of a bug dodging the footsteps of humans above. Players move the bug in a grid with arrows keys or WASD.  As the game time elapses, the game increases in difficulty with the addition of more humans walking around.  
 
 ## Project Setup 
 
