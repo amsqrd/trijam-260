@@ -176,7 +176,7 @@ function updateHumanPosition(human) {
         _gameState.isGameOver = true;
     } 
         
-    humanTd.innerHTML = '&#xe519;'
+    humanTd.innerHTML = '&#x1F475;'
     humanTd.classList.add('human');
 }
 

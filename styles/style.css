@@ -136,6 +136,13 @@ td {
     text-align: center;
 }
 
+.human {
+    font-size: calc(var(--cell-size) * .75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .game-controls > div {
     display: flex;
     align-items: center;
