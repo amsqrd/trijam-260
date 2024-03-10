@@ -3,7 +3,9 @@
     --dark-brown: #361b08;
     --light-green: #A9B388;
     --cream: #FEFAE0;
+    --translucent-cream: #fefae03b;
     --tan: #B99470;
+    --cell-size: 8vmin;
 }
 
 html,
@@ -98,8 +100,8 @@ td {
 
 td {
     box-sizing: border-box;
-    height: 8vmin;
-    width: 8vmin;
+    height: var(--cell-size);
+    width: var(--cell-size);
 }
 
 .game-state {
@@ -123,10 +125,14 @@ td {
 }
 
 .player {
-    height: 100%;
+    height: 50%;
+    width: 50%;
     border-radius: 50%;
-    background: #6017EB;
+    background: radial-gradient(var(--translucent-cream), rgba(0,0,0,0));
     position: relative;
+    margin: 0 auto;
+    font-size: calc(var(--cell-size) / 2);
+    text-align: center;
 }
 
 .game-controls > div {
@@ -168,5 +174,16 @@ td {
 
     .mute-message-p {
         display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    button,
+    .opening-message-p {
+        font-size: 1.25rem;
+    }
+
+    h1 {
+        font-size: 3rem;
     }
 }

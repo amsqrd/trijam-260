@@ -161,6 +161,7 @@ function updatePlayerPosition(row, col) {
     _gameState.matrix[_gameState.playerRow][_gameState.playerColumn] = null;
     let playerTd = document.getElementById(`${_gameState.playerRow}-${_gameState.playerColumn}`);
     if(playerTd) {
+        playerTd.innerHTML = '';
         playerTd.classList.remove('player');
     }
 
@@ -176,6 +177,7 @@ function updatePlayerPosition(row, col) {
         _gameState.isGameOver = true;
     } 
         
+    playerTd.innerHTML = '&#x1F41B;'
     playerTd.classList.add('player');
 
     // update player position in matrix
