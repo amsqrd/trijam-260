@@ -94,9 +94,7 @@ function startGame() {
     _gameState = {
         playerRow: Math.floor(MAX_ROW_SIZE / 2),
         playerColumn: Math.floor(MAX_COLUMN_SIZE / 2),
-        humanRow: Math.floor(2),
-        humanColumn: Math.floor(1),
-        humanCount: 0,
+        humans: [],
         matrix: createGameMatrix(MAX_ROW_SIZE, MAX_COLUMN_SIZE),
         isGameOver: false,
         isMuted: false
@@ -108,7 +106,28 @@ function startGame() {
     updatePlayerPosition(_gameState.playerRow, _gameState.playerColumn);
 
     // Spawn human
-    spawnHuman();
+    const humanSpawnInterval = setInterval(() => {
+        if (_gameState.isGameOver) {
+            clearInterval(humanSpawnInterval);
+            return;
+        }
+        const spawnInColumn = _gameState.humans.length % 2;
+        const randomInt = getRandomInt(0, MAX_COLUMN_SIZE);
+        if (spawnInColumn) {
+            _gameState.humans.push({
+                row: 0,
+                column: randomInt,
+                id: _gameState.humans.length + 1
+            })
+        } else {
+            _gameState.humans.push({
+                row: randomInt,
+                column: 0,
+                id: _gameState.humans.length + 1
+            })
+        }
+        updateHumanPosition(_gameState.humans[_gameState.humans.length - 1]);
+    }, 1000);
 }
 
 /**
@@ -138,33 +157,27 @@ function generateGameTable(rowSize, columnSize) {
     } 
 }
 
-function spawnHuman() {
+function updateHumanPosition(human) {
     // clear previous human position
-    _gameState.matrix[_gameState.humanRow][_gameState.humanColumn] = null;
-    let humanTd = document.getElementById(`${_gameState.humanRow}-${_gameState.humanColumn}`);
+    _gameState.matrix[human.row][human.column] = null;
+    let humanTd = document.getElementById(`${human.row}-${human.column}`);
     if(humanTd) {
         humanTd.innerHTML = '';
         humanTd.classList.remove('human');
     }
 
     // update to new human position
-    _gameState.humanRow = row;
-    _gameState.humanColumn = col;
-    humanTd = document.getElementById(`${_gameState.humanRow}-${_gameState.humanColumn}`);
+    humanTd = document.getElementById(`${human.row}-${human.column}`);
 
     // if a human inside cell, splat the bug and end the game
-    if(_gameState.matrix[_gameState.humanRow][_gameState.humanColumn]) {
+    if(_gameState.matrix[human.row][human.column]) {
         // Trigger end game state
         playSound('assets/sounds/splat.wav');
         _gameState.isGameOver = true;
     } 
         
-    humanTd.innerHTML = '&#x1F41B;'
+    humanTd.innerHTML = '&#xe519;'
     humanTd.classList.add('human');
-
-    // update human position in matrix
-    _gameState.matrix[_gameState.humanRow][_gameState.humanColumn] =  { row: _gameState.humanRow, col: _gameState.humanColumn };
-
 }
 
 function displayElapsedTime() {
