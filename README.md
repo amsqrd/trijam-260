@@ -27,6 +27,13 @@ python3 -m http.server 8000
 * Visual Studio Code
 * Color Pallet from [Color Hunt](https://colorhunt.co/palette/5f6f52a9b388fefae0b99470)
 
+## Third Party Assets
+
+* [Mega Game Music Collection](https://www.gamedevmarket.net/asset/mega-game-music-collection/)
+    * Hit_Hurt3.wav
+* [Creeper Google Font](https://fonts.google.com/specimen/Creepster)
+* [Outfit Google Font](https://fonts.google.com/specimen/Outfit)
+
 ## Useful Resource
 
 * TBD

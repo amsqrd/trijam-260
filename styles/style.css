@@ -84,6 +84,29 @@ p {
     text-align: center;
 }
 
+table {
+    border-collapse: collapse;
+    background-color: var(--dark-brown);
+}
+
+table,
+tr,
+td {
+    border: 1px solid var(--tan);
+}
+
+tr,
+td {
+    padding: 0;
+    margin: 0;
+}
+
+td {
+    box-sizing: border-box;
+    height: 8vmin;
+    width: 8vmin;
+}
+
 .game-state {
     height: 100%;
 }
@@ -98,4 +121,10 @@ p {
 
 .game-state--hidden {
     display: none;
+}
+
+.player {
+    height: 100%;
+    background: #6017EB;
+    position: relative;
 }
