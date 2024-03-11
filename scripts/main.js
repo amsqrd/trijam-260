@@ -43,6 +43,10 @@ function main() {
 }
 
 function onKeydown(event) {
+    if(_gameState.isGameOver) {
+        return;
+    }
+
     switch(event.key) {
         case "ArrowDown":
         case "s":
