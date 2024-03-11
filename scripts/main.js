@@ -1,5 +1,7 @@
 const MAX_ROW_SIZE = 9;
 const MAX_COLUMN_SIZE = 9;
+
+const emojis = ['&#x1f575;', '&#x1F475;', '&#x1f468;', '&#x1f9d1;']
 let _backgroundAudioLoop;
 let _gameState = { };
 
@@ -230,7 +232,8 @@ function updateHumanPosition(human) {
         _gameState.isGameOver = true;
     } 
         
-    humanTd.innerHTML = '&#x1F475;'
+    let randomEmojiIndex = getRandomInt(0, emojis.length);
+    humanTd.innerHTML = emojis[randomEmojiIndex];
     humanTd.classList.add('human');
 }
 
