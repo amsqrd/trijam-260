@@ -136,6 +136,12 @@ function startGame() {
         updateHumanPosition(human);
         _gameState.humans.push(human);
 
+        // update human counter
+        const humanCounters = document.getElementsByClassName('human-counter');
+        for(let counter of humanCounters) {
+            counter.innerText = _gameState.humans.length;
+        }
+
         // Human update interval
         const humanUpdateInterval = setInterval(() => {
             if(_gameState.isGameOver) {
@@ -222,21 +228,6 @@ function updateHumanPosition(human) {
         
     humanTd.innerHTML = '&#x1F475;'
     humanTd.classList.add('human');
-}
-
-function displayElapsedTime() {
-    const timer = document.getElementById('elapsed-time');
-    let minutes = 0;
-    let seconds = 0;
-
-    setInterval(() => {
-        seconds += 1;
-        if (seconds == 60) {
-            minutes += 1;
-            seconds = 0;
-        }
-        seconds < 10 ? timer.innerHTML = `${minutes}:0${seconds}` : timer.innerHTML = `${minutes}:${seconds}`;
-    }, 1000)
 }
 
 /**

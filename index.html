@@ -26,9 +26,9 @@
             <!-- Play Game State -->
             <section id="play-state" class="game-state game-state--hidden">
                 <div>
-                    <div>
-                        <span id="elapsed-time">0:00</span>
-                    </div>
+                    <h2>
+                        Humans: <span class="human-counter">0</span>
+                    </h2>
                     <table id="game-table">
                     </table>
                     <p class="mute-message-p">Press the <strong>m key</strong> to toggle audio off and on.</p>
@@ -46,6 +46,8 @@
             <!-- End Game State -->
             <section id="end-state" class="game-state game-state--hidden">
                 <div>
+                    <h1>Splat!</h1>
+                    <p class="opening-message-p">You were able to avoid getting squashed until <strong><span class="human-counter">0</span></strong> humans arrived! Try again?</p>
                     <button id="restart-game-button">Restart Game</button>
                 </div>
             </section>
