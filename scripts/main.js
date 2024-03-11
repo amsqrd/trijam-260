@@ -27,6 +27,8 @@ function main() {
 
         const playState = document.getElementById('play-state');
         playState.classList.remove('game-state--hidden');
+
+        startGame();
     });
 
     document.addEventListener('keydown', onKeydown, true);
@@ -109,25 +111,65 @@ function startGame() {
     const humanSpawnInterval = setInterval(() => {
         if (_gameState.isGameOver) {
             clearInterval(humanSpawnInterval);
+            endGame();
             return;
         }
         const spawnInColumn = _gameState.humans.length % 2;
         const randomInt = getRandomInt(0, MAX_COLUMN_SIZE);
+        let human;
         if (spawnInColumn) {
-            _gameState.humans.push({
+            human = {
                 row: 0,
                 column: randomInt,
-                id: _gameState.humans.length + 1
-            })
+                id: _gameState.humans.length + 1,
+                travelsOnColumn: true
+            };
         } else {
-            _gameState.humans.push({
+            human = {
                 row: randomInt,
                 column: 0,
-                id: _gameState.humans.length + 1
-            })
+                id: _gameState.humans.length + 1,
+                travelsOnColumn: false
+            };
         }
-        updateHumanPosition(_gameState.humans[_gameState.humans.length - 1]);
+
+        updateHumanPosition(human);
+        _gameState.humans.push(human);
+
+        // Human update interval
+        const humanUpdateInterval = setInterval(() => {
+            if(_gameState.isGameOver) {
+                clearInterval(humanUpdateInterval);
+                return;
+            }
+
+            removeHuman(human);
+            if(human.travelsOnColumn) {
+                if(human.row >= MAX_ROW_SIZE - 1) {
+                    human.row = 0;
+                } else {
+                    human.row += 1
+                }
+            } else {
+                if(human.column >= MAX_COLUMN_SIZE - 1) {
+                    human.column = 0;
+                } else {
+                    human.column += 1
+                }
+            }
+
+            updateHumanPosition(human);
+
+        }, 250);
     }, 1000);
+}
+
+function endGame() {
+    const playState = document.getElementById('play-state');
+    playState.classList.add('game-state--hidden');
+
+    const endState = document.getElementById('end-state');
+    endState.classList.remove('game-state--hidden');
 }
 
 /**
@@ -157,20 +199,22 @@ function generateGameTable(rowSize, columnSize) {
     } 
 }
 
-function updateHumanPosition(human) {
-    // clear previous human position
-    _gameState.matrix[human.row][human.column] = null;
-    let humanTd = document.getElementById(`${human.row}-${human.column}`);
-    if(humanTd) {
-        humanTd.innerHTML = '';
-        humanTd.classList.remove('human');
-    }
+function removeHuman(human) {
+   // clear previous human position
+   _gameState.matrix[human.row][human.column] = null;
+   let humanTd = document.getElementById(`${human.row}-${human.column}`);
+   if(humanTd && humanTd.innerHTML && humanTd.classList) {
+       humanTd.innerHTML = '';
+       humanTd.classList.remove('human');
+   } 
+}
 
+function updateHumanPosition(human) {
     // update to new human position
-    humanTd = document.getElementById(`${human.row}-${human.column}`);
+    let humanTd = document.getElementById(`${human.row}-${human.column}`);
 
     // if a human inside cell, splat the bug and end the game
-    if(_gameState.matrix[human.row][human.column]) {
+    if(humanTd && humanTd.classList && humanTd.classList.contains('player')) {
         // Trigger end game state
         playSound('assets/sounds/splat.wav');
         _gameState.isGameOver = true;
