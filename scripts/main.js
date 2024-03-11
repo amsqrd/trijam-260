@@ -122,20 +122,23 @@ function startGame() {
         }
         const spawnInColumn = _gameState.humans.length % 2;
         const randomInt = getRandomInt(0, MAX_COLUMN_SIZE);
+        const randomEmojiIndex = getRandomInt(0, emojis.length);
         let human;
         if (spawnInColumn) {
             human = {
                 row: 0,
                 column: randomInt,
                 id: _gameState.humans.length + 1,
-                travelsOnColumn: true
+                travelsOnColumn: true,
+                emoji: emojis[randomEmojiIndex]
             };
         } else {
             human = {
                 row: randomInt,
                 column: 0,
                 id: _gameState.humans.length + 1,
-                travelsOnColumn: false
+                travelsOnColumn: false,
+                emoji: emojis[randomEmojiIndex]
             };
         }
 
@@ -232,8 +235,7 @@ function updateHumanPosition(human) {
         _gameState.isGameOver = true;
     } 
         
-    let randomEmojiIndex = getRandomInt(0, emojis.length);
-    humanTd.innerHTML = emojis[randomEmojiIndex];
+    humanTd.innerHTML = human.emoji;
     humanTd.classList.add('human');
 }
 
